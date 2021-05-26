@@ -1,0 +1,175 @@
+/*_____________________________________________________________________________
+ |                                                                            |
+ | COPYRIGHT (C) 2020 Mihai Baneu                                             |
+ |                                                                            |
+ | Permission is hereby  granted,  free of charge,  to any person obtaining a |
+ | copy of this software and associated documentation files (the "Software"), |
+ | to deal in the Software without restriction,  including without limitation |
+ | the rights to  use, copy, modify, merge, publish, distribute,  sublicense, |
+ | and/or sell copies  of  the Software, and to permit  persons to  whom  the |
+ | Software is furnished to do so, subject to the following conditions:       |
+ |                                                                            |
+ | The above  copyright notice  and this permission notice  shall be included |
+ | in all copies or substantial portions of the Software.                     |
+ |                                                                            |
+ | THE SOFTWARE IS PROVIDED  "AS IS",  WITHOUT WARRANTY OF ANY KIND,  EXPRESS |
+ | OR   IMPLIED,   INCLUDING   BUT   NOT   LIMITED   TO   THE  WARRANTIES  OF |
+ | MERCHANTABILITY,  FITNESS FOR  A  PARTICULAR  PURPOSE AND NONINFRINGEMENT. |
+ | IN NO  EVENT SHALL  THE AUTHORS  OR  COPYRIGHT  HOLDERS  BE LIABLE FOR ANY |
+ | CLAIM, DAMAGES OR OTHER LIABILITY,  WHETHER IN AN ACTION OF CONTRACT, TORT |
+ | OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR  |
+ | THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                 |
+ |____________________________________________________________________________|
+ |                                                                            |
+ |  Author: Mihai Baneu                           Last modified: 11.Dec.2020  |
+ |                                                                            |
+ |___________________________________________________________________________*/
+
+
+body {
+  font-family: Calibri, sans-serif;
+  font-weight: normal;
+  /* font-size: 11pt; */
+  font-size: medium;
+}
+
+.header-title {
+  margin-top: 30px;
+  margin-left: 6px;
+  padding: 6px;
+  color: #FFA500;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+h1 {
+  margin-top: 30px;
+  margin-left: 6px;
+  padding: 6px;
+  color: #FFA500;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+h2 {
+  margin-top: 30px;
+  margin-left: 6px;
+  padding: 6px;
+  color: #FFA500;
+  font-weight: bold;
+  font-size: large;
+}
+
+h3 {
+  margin-top: 30px;
+  margin-left: 6px;
+  padding: 6px;
+  color: #FFA500;
+  font-weight: normal;
+  font-size: large;
+}
+
+.navigationbar table {
+  padding: 0;
+  margin: 0;
+}
+
+.navigationbar table tr {
+  background-color: #FFA500;
+}
+
+.navigationbar table td {
+  background-color: #FFA500;
+}
+
+a[href] {
+  color: #008B8B;
+  text-decoration: none;
+}
+
+a[href^="http://"], a[href^="https://"] {
+  color: #DF0000;
+}
+
+table {
+  width: 100%;
+  padding: 15px 15px 15px 15px;
+}
+
+table p {
+  margin: 0px;
+  padding: 0px;
+}
+
+table th {
+  text-align: left;
+  padding: 8px;
+  background-color: #D0D0D0;
+  font-weight: bold;
+}
+
+table td {
+  padding: 6px 10px 6px 10px;
+  background-color: #F0F0F0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-left: 15px;
+}
+
+p.naviNextPrevious {
+  text-align: right;
+  margin-right: 20px;
+}
+
+span.naviSeparator {
+  white-space: pre;
+}
+
+code {
+  font-family: Consolas, monospace;
+  font-weight: bold;
+}
+
+pre {
+  background-color: #f0f0f0;
+  font-family: Consolas, monospace;
+  font-weight: normal;
+  font-size: small;
+  vertical-align: top;
+  margin: 15px 15px 15px 15px;
+  padding: 25px;
+  overflow-x:auto;
+}
+
+pre .name {
+  color: #0000CD;
+}
+
+pre .char {
+  color: #2E8B57;
+}
+
+pre .string {
+  color: #2E8B57;
+}
+
+pre .keyword {
+  font-weight: bold;
+}
+
+pre .number {
+  color: #8B0000;
+  font-weight: bold;
+}
+
+.footer p {
+  margin: 0px;
+  font-size: small;
+}

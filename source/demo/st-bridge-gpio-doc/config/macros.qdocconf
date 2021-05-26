@@ -1,0 +1,79 @@
+##############################################################################
+#                                                                            #
+# COPYRIGHT (C) 2020 Mihai Baneu                                             #
+#                                                                            #
+# Permission is hereby  granted,  free of charge,  to any person obtaining a #
+# copy of this software and associated documentation files (the "Software"), #
+# to deal in the Software without restriction,  including without limitation #
+# the rights to  use, copy, modify, merge, publish, distribute,  sublicense, #
+# and/or sell copies  of  the Software, and to permit  persons to  whom  the #
+# Software is furnished to do so, subject to the following conditions:       #
+#                                                                            #
+# The above  copyright notice  and this permission notice  shall be included #
+# in all copies or substantial portions of the Software.                     #
+#                                                                            #
+# THE SOFTWARE IS PROVIDED  "AS IS",  WITHOUT WARRANTY OF ANY KIND,  EXPRESS #
+# OR   IMPLIED,   INCLUDING   BUT   NOT   LIMITED   TO   THE  WARRANTIES  OF #
+# MERCHANTABILITY,  FITNESS FOR  A  PARTICULAR  PURPOSE AND NONINFRINGEMENT. #
+# IN NO  EVENT SHALL  THE AUTHORS  OR  COPYRIGHT  HOLDERS  BE LIABLE FOR ANY #
+# CLAIM, DAMAGES OR OTHER LIABILITY,  WHETHER IN AN ACTION OF CONTRACT, TORT #
+# OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR  #
+# THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                 #
+##############################################################################
+#                                                                            #
+#  Author: Mihai Baneu                           Last modified: 11.Dec.2020  #
+#                                                                            #
+##############################################################################
+
+# Doxygen compatibility commands
+macro.see                       = "\\sa"
+macro.function                  = "\\fn"
+
+macro.aacute.HTML       = "&aacute;"
+macro.Aring.HTML        = "&Aring;"
+macro.aring.HTML        = "&aring;"
+macro.Auml.HTML         = "&Auml;"
+macro.author            = "\\b{Author:}"
+macro.BR.HTML           = "<br />"
+macro.copyright.HTML    = "&copy;"
+macro.eacute.HTML       = "&eacute;"
+macro.gui               = "\\b"
+macro.HR.HTML           = "<hr />"
+macro.iacute.HTML       = "&iacute;"
+macro.key               = "\\b"
+macro.macos             = "macOS"
+macro.menu              = "\\b"
+macro.oslash.HTML       = "&oslash;"
+macro.ouml.HTML         = "&ouml;"
+macro.QA                = "\\e{Qt Assistant}"
+macro.QD                = "\\e{Qt Designer}"
+macro.QL                = "\\e{Qt Linguist}"
+macro.QQV               = "\\e{Qt QML Viewer}"
+macro.param             = "\\e"
+macro.raisedaster.HTML  = "<sup>*</sup>"
+macro.rarrow.HTML       = "&rarr;"
+macro.reg.HTML          = "<sup>&reg;</sup>"
+macro.return            = "Returns"
+macro.starslash         = "\\c{*/}"
+macro.begincomment      = "\\c{/*}"
+macro.endcomment        = "\\c{*/}"
+macro.uuml.HTML         = "&uuml;"
+macro.mdash.HTML        = "&mdash;"
+macro.pi.HTML         = "&Pi;"
+macro.beginqdoc.HTML    = "/*!"
+macro.endqdoc.HTML      = "*/"
+macro.borderedimage       = "\\div {class=\"border\"} \\image \1\n\\enddiv"
+
+macro.beginfloatleft.HTML   = "<div style=\"float: left; margin-right: 2em\">"
+macro.beginfloatright.HTML  = "<div style=\"float: right; margin-left: 2em\">"
+macro.endfloat.HTML         = "</div>"
+macro.clearfloat.HTML       = "<br style=\"clear: both\" />"
+macro.emptyspan.HTML        = "<span></span>" 
+
+macro.0                         = "\\\\0"
+macro.n                         = "\\\\n"
+macro.r                         = "\\\\r"
+macro.img                       = "\\image"
+macro.endquote                  = "\\endquotation"
+macro.relatesto                 = "\\relates"
+

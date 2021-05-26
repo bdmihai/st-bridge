@@ -1,0 +1,3 @@
+<b>ST-Link GPIO Bridge</b>
+<p>Developed using <a href=\"https://www.qt.io\">Qt framework</a>.</p>
+<p>E-mail : <a href=\"mailto:bdmihai@gmail.com\">bdmihai@gmail.com</a></p>

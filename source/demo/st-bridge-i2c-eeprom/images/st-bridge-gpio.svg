@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   xml:space="preserve"
+   id="svg2"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="eepro.svg"
+   inkscape:export-filename="/home/mihai/work/projects/eepro/source/eeprogui/images/eepro.png"
+   inkscape:export-xdpi="91"
+   inkscape:export-ydpi="91"><metadata
+     id="metadata22"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs20" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="20"
+     gridtolerance="20"
+     guidetolerance="20"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3840"
+     inkscape:window-height="2063"
+     id="namedview18"
+     showgrid="true"
+     inkscape:zoom="11.789567"
+     inkscape:cx="2.7765066"
+     inkscape:cy="6.1334874"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     showborder="true"
+     inkscape:snap-global="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:document-rotation="0"><inkscape:grid
+       type="xygrid"
+       id="grid4152" /></sodipodi:namedview><style
+     type="text/css"
+     id="style4">
+	.icon-canvas-transparent{opacity:0;fill:#F6F6F6;}
+	.icon-vs-out{fill:#F6F6F6;}
+	.icon-vs-bg{fill:#424242;}
+	.icon-vs-fg{fill:#F0EFF1;}
+</style><rect
+     style="fill:#44aa00;fill-opacity:1"
+     id="rect3341"
+     width="11"
+     height="11"
+     x="3"
+     y="3" /><rect
+     style="fill:#225500;fill-opacity:1"
+     id="rect3341-0"
+     width="11"
+     height="11"
+     x="3"
+     y="18" /><rect
+     style="fill:#112b00;fill-opacity:1"
+     id="rect3341-0-2-4"
+     width="11"
+     height="11"
+     x="18"
+     y="18" /><rect
+     style="fill:#7fff2a;fill-opacity:1"
+     id="rect3341-3"
+     width="11"
+     height="11"
+     x="18"
+     y="3" /></svg>

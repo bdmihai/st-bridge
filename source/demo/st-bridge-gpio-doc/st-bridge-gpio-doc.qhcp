@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<QHelpCollectionProject version="1.0">
+	<assistant>
+         <title>ST-Link GPIO Bridge</title>
+         <startPage>qthelp://org.bmd.stbridgegpio/doc/index.html</startPage>
+         <homePage>qthelp://org.bmd.stbridgegpio/doc/index.html</homePage>
+         <applicationIcon>../st-bridge-gpio/images/st-bridge-gpio.png</applicationIcon>
+         <enableFilterFunctionality>false</enableFilterFunctionality>
+         <enableDocumentationManager>false</enableDocumentationManager>
+         <enableAddressBar visible="true">true</enableAddressBar>
+         <cacheDirectory>ST-Link GPIO Bridge</cacheDirectory>
+         <aboutMenuText>
+             <text>About ST-Link GPIO Bridge</text>
+         </aboutMenuText>
+         <aboutDialog>
+             <file>about.txt</file>
+         </aboutDialog>
+     </assistant>
+	 <docFiles>
+		 <register>
+		 </register>
+	 </docFiles>
+</QHelpCollectionProject>

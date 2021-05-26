@@ -1,0 +1,15 @@
+include(config/macros.qdocconf)
+include(config/files.qdocconf)
+include(config/html.qdocconf)
+
+project     = "stbridgegpio"
+description = "ST-Link GPIO Bridge"
+
+qhp.projects                                                 = stbridgegpio
+qhp.stbridgegpio.file                                        = st-bridge-gpio-doc.qhp
+qhp.stbridgegpio.namespace                                   = org.bmd.stbridgegpio
+qhp.stbridgegpio.virtualFolder                               = doc
+qhp.stbridgegpio.indexTitle                                  = User manual
+qhp.stbridgegpio.indexRoot                                   =
+
+navigation.homepage = "User manual"
