@@ -11,4 +11,6 @@ API.
 
 ## ST Bridge I2C
 
+![](doc/st-bridge-i2c.png "ST Bridge I2C")
+
 Reading and writting data over I2C on a EEPROM chip (AT24C04N in my case). The Bridge API is used to read and write the entire content of the EEPROM (hardcoded in the defines). QHexView is used to display/edit the data (https://github.com/Dax89/QHexView).
