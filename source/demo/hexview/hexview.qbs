@@ -48,7 +48,7 @@ Product {
     Depends { name: "Qt.core" }
     Depends { name: "Qt.gui" }
     Depends { name: "Qt.widgets" }
-    cpp.includePaths: product.sourceDirectory
+    cpp.includePaths: exportingProduct.sourceDirectory
   }
 
   // install group for the produced executable

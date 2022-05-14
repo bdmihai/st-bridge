@@ -317,7 +317,7 @@ void MainWindow::help()
            << "st-bridge-gpio-doc.qch"
            << "-quiet";
 
-      connect(m_helpProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [this](int exitCode, QProcess::ExitStatus exitStatus) {
+      connect(m_helpProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [this](int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/) {
         m_helpProcess->deleteLater();
         m_helpProcess = nullptr;
         this->help();
@@ -327,7 +327,7 @@ void MainWindow::help()
            << qApp->applicationDirPath() + "/st-bridge-gpio-doc.qhc"
            << "-enableRemoteControl";
 
-      connect(m_helpProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [this](int exitCode, QProcess::ExitStatus exitStatus) {
+      connect(m_helpProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [this](int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/) {
         m_helpProcess->deleteLater();
         m_helpProcess = nullptr;
       });

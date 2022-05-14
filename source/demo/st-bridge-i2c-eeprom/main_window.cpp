@@ -327,7 +327,7 @@ void MainWindow::writeData()
         QByteArray buffer(ioBuffer.data());
 
         // only the eeprom size will be counted - less bytes are possible
-        uint16_t bufferSize = std::min(buffer.size(), EEPROM_SIZE);
+        uint16_t bufferSize = std::min((int)buffer.size(), EEPROM_SIZE);
         for (uint16_t i = 0; i < bufferSize; i += EEPROM_PAGE_SIZE) {
           uint8_t pageBuffer[EEPROM_PAGE_SIZE + 1];
           uint16_t pageSize;
@@ -395,7 +395,7 @@ void MainWindow::help()
            << "st-bridge-gpio-doc.qch"
            << "-quiet";
 
-      connect(m_helpProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [this](int exitCode, QProcess::ExitStatus exitStatus) {
+      connect(m_helpProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [this](int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/) {
         m_helpProcess->deleteLater();
         m_helpProcess = nullptr;
         this->help();
@@ -405,7 +405,7 @@ void MainWindow::help()
            << qApp->applicationDirPath() + "/st-bridge-gpio-doc.qhc"
            << "-enableRemoteControl";
 
-      connect(m_helpProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [this](int exitCode, QProcess::ExitStatus exitStatus) {
+      connect(m_helpProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [this](int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/) {
         m_helpProcess->deleteLater();
         m_helpProcess = nullptr;
       });

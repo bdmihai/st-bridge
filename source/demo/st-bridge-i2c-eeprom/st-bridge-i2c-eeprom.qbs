@@ -41,7 +41,7 @@ Product {
   Depends { name: "hexview" }
 
   // cpp module configuration
-  cpp.includePaths: [ ".",  ]
+  cpp.includePaths: [ "." ]
   cpp.cxxLanguageVersion: "c++14"
   cpp.useCxxPrecompiledHeader: true
 

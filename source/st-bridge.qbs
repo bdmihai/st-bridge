@@ -29,7 +29,7 @@ import qbs
 
 Project {
   name: "st-bridge"
-  minimumQbsVersion: "1.10"
+  minimumQbsVersion: "1.22"
   references: [
     "st-bridge/st-bridge.qbs",
     "demo/hexview/hexview.qbs",

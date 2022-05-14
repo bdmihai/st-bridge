@@ -48,8 +48,8 @@ Product {
   // export requirements
   Export {
     Depends { name: "cpp" }
-    cpp.includePaths: product.cpp.includePaths
-    cpp.dynamicLibraries: product.cpp.dynamicLibraries
+    cpp.includePaths: exportingProduct.cpp.includePaths
+    cpp.dynamicLibraries: exportingProduct.cpp.dynamicLibraries
   }
 
   // install group for the produced executable

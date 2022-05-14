@@ -1,6 +1,7 @@
 #include "qmemoryrefbuffer.h"
 
 #include <QObject>
+#include <limits.h>
 
 QMemoryRefBuffer::QMemoryRefBuffer(QObject *parent): QHexBuffer(parent) { }
 qint64 QMemoryRefBuffer::length() const { return m_buffer->size(); }
