@@ -518,7 +518,7 @@ bool QHexView::processMove(QHexCursor *cur, QKeyEvent *e)
 
 bool QHexView::processTextInput(QHexCursor *cur, QKeyEvent *e)
 {
-    if(m_readonly || (e->modifiers() & Qt::ControlModifier))
+    if(m_readonly || (e->modifiers() & Qt::ControlModifier) || ((e->modifiers() & Qt::ShiftModifier) && e->text().isEmpty()))
         return false;
 
     uchar key = static_cast<uchar>(e->text()[0].toLatin1());
