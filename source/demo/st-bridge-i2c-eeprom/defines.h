@@ -1,6 +1,6 @@
 /*_____________________________________________________________________________
  |                                                                            |
- | COPYRIGHT (C) 2021 Mihai Baneu                                             |
+ | COPYRIGHT (C) 2023 Mihai Baneu                                             |
  |                                                                            |
  | Permission is hereby  granted,  free of charge,  to any person obtaining a |
  | copy of this software and associated documentation files (the "Software"), |
@@ -21,17 +21,17 @@
  | THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                 |
  |____________________________________________________________________________|
  |                                                                            |
- |  Author: Mihai Baneu                           Last modified: 26.Mai.2021  |
+ |  Author: Mihai Baneu                           Last modified: 11.Nov.2023  |
  |                                                                            |
  |___________________________________________________________________________*/
 
 #pragma once
 
-#define APP_VERSION     "1.0.1"
+#define APP_VERSION     "1.2.1"
 #define APP_NAME        "ST-Link I2C Bridge (EEPROM)"
 #define APP_COMPANY     ""
 #define APP_DOMAIN      ""
 
-#define EEPROM_SIZE         512
-#define EEPROM_PAGE_SIZE    16
-#define EEPROM_I2C_ADDRESS  0b01010000
+#define EEPROM_SIZE         32*1024 / 8
+#define EEPROM_PAGE_SIZE    8
+#define EEPROM_I2C_ADDRESS  0b01010111

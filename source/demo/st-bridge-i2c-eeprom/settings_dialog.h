@@ -24,80 +24,27 @@
  |  Author: Mihai Baneu                           Last modified: 11.Nov.2023  |
  |                                                                            |
  |___________________________________________________________________________*/
-#include "stable.h"
-#include "settings.h"
-#include "defines.h"
 
-Settings settings(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/" + APP_NAME + "/" + "Settings.ini");
+#pragma once
 
-Settings::Settings(QString filePath) : QSettings(filePath, QSettings::IniFormat, 0)
+class SettingsDialog : public QDialog
 {
-  if (!QFile::exists(filePath))
-    setDefault();
-}
+    Q_OBJECT
 
-Settings::~Settings()
-{
-}
+  public:
+    SettingsDialog(QWidget *parent);
+    virtual ~SettingsDialog();
 
-void Settings::setDefault()
-{
-  setValue("APP_NAME", APP_NAME);
-  setValue("APP_VERSION", APP_VERSION);
-  setValue("APP_COMPANY", APP_COMPANY);
-  setValue("APP_DOMAIN", APP_DOMAIN);
+  protected:
+    void createLayout();
 
-  setValue("Eeprom/Address", EEPROM_I2C_ADDRESS);
-  setValue("Eeprom/Size", EEPROM_SIZE);
-  setValue("Eeprom/PageSize", EEPROM_PAGE_SIZE);
-}
+  protected slots:
+    void accept();
+    void reject();
 
-void Settings::setWindowGeometry(const QByteArray &newValue)
-{
-  setValue("MainWindow/Geometry", newValue);
-}
-
-QByteArray Settings::getWindowGeometry()
-{
-  return value("MainWindow/Geometry").toByteArray();
-}
-
-void Settings::setWindowState(const QByteArray &newValue)
-{
-  setValue("MainWindow/State", newValue);
-}
-
-QByteArray Settings::getWindowState()
-{
-  return value("MainWindow/State").toByteArray();
-}
-
-quint8 Settings::getEepromAddress()
-{
-  return value("Eeprom/Address").toUInt();
-}
-
-void Settings::setEepromAddress(const quint8 &newValue)
-{
-    setValue("Eeprom/Address", newValue);
-}
-
-quint32 Settings::getEepromSize()
-{
-  return value("Eeprom/Size").toUInt();
-}
-
-void Settings::setEepromSize(const quint32 &newValue)
-{
-    setValue("Eeprom/Size", newValue);
-}
-
-quint32 Settings::getEepromPageSize()
-{
-  return value("Eeprom/PageSize").toUInt();
-}
-
-void Settings::setEepromPageSize(const quint32 &newValue)
-{
-    setValue("Eeprom/PageSize", newValue);
-}
+  private:
+    QDialogButtonBox *m_dialogButtonBox;
+    QLineEdit *m_eepromAddress;
+    QLineEdit *m_eepromSize;
+    QLineEdit *m_eepromPageSize;
+};

@@ -1,6 +1,6 @@
 /*_____________________________________________________________________________
  |                                                                            |
- | COPYRIGHT (C) 2021 Mihai Baneu                                             |
+ | COPYRIGHT (C) 2023 Mihai Baneu                                             |
  |                                                                            |
  | Permission is hereby  granted,  free of charge,  to any person obtaining a |
  | copy of this software and associated documentation files (the "Software"), |
@@ -21,7 +21,7 @@
  | THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                 |
  |____________________________________________________________________________|
  |                                                                            |
- |  Author: Mihai Baneu                           Last modified: 26.Mai.2021  |
+ |  Author: Mihai Baneu                           Last modified: 11.Nov.2023  |
  |                                                                            |
  |___________________________________________________________________________*/
 
@@ -29,6 +29,7 @@
 #include "settings.h"
 #include "defines.h"
 #include "main_window.h"
+#include "settings_dialog.h"
 #include "qhexview.h"
 #include "device_combo_box.h"
 #include "document/buffer/qmemorybuffer.h"
@@ -91,9 +92,9 @@ void MainWindow::createLayout()
   QFont font("Source Code Pro", 11);
   m_mainView->setFont(font);
 
-  QByteArray bytearray(EEPROM_SIZE, 0x00);
+  QByteArray bytearray(settings.getEepromSize(), 0x00);
   m_document = QHexDocument::fromMemory<QMemoryBuffer>(bytearray);
-  m_document->setBaseAddress(EEPROM_I2C_ADDRESS * 256);
+  m_document->setBaseAddress(0);
   m_mainView->setDocument(m_document);
 
   setCentralWidget(m_mainView);
@@ -115,6 +116,10 @@ void MainWindow::createActions()
   refreshAct = new QAction("Scan", this);
   refreshAct->setStatusTip("Refresh the list of devices");
   connect(refreshAct, SIGNAL(triggered()), this, SLOT(refresh()));
+
+  settingsAct = new QAction(QIcon(":/images/settings.png"), "Settings", this);
+  settingsAct->setStatusTip("Show the settings dialog...");
+  connect(settingsAct, SIGNAL(triggered()), this, SLOT(showSettings()));
 
   readAct = new QAction(QIcon(":/images/eeprom-read.png"), "Read eeprom", this);
   readAct->setStatusTip("Read the eeprom content");
@@ -168,6 +173,7 @@ void MainWindow::createToolBars()
   m_mainToolBar->addWidget(m_deviceComboBox);
   m_mainToolBar->addAction(refreshAct);
   m_mainToolBar->addSeparator();
+  m_mainToolBar->addAction(settingsAct);
   m_mainToolBar->addAction(readAct);
   m_mainToolBar->addAction(writeAct);
 }
@@ -275,17 +281,17 @@ void MainWindow::readData()
 
       status = m_brg->InitI2C(&param);
       if (status == BRG_NO_ERR) {
-        QByteArray buffer(EEPROM_SIZE, 0x00);
+        QByteArray buffer(settings.getEepromSize(), 0x00);
         uint8_t address[] = { /*LSB*/ 0x00, /*MSB*/ 0x00 };
 
-        status = m_brg->WriteI2C(address, EEPROM_I2C_ADDRESS + address[1], 1, 0);
+        status = m_brg->WriteI2C(address, settings.getEepromAddress(), 2, 0);
         if (status == BRG_NO_ERR) {
-          status = m_brg->ReadI2C((uint8_t *)(buffer.data()), 0b1010000, buffer.size(), 0);
+          status = m_brg->ReadI2C((uint8_t *)(buffer.data()), settings.getEepromAddress(), buffer.size(), 0);
           if (status == BRG_NO_ERR) {
             m_document = QHexDocument::fromMemory<QMemoryBuffer>(buffer);
-            m_document->setBaseAddress(EEPROM_I2C_ADDRESS * 256);
+            m_document->setBaseAddress(0);
             m_mainView->setDocument(m_document);
-            statusBar()->showMessage(tr("Read %2 bytes from 0x%1").arg(EEPROM_I2C_ADDRESS * 256, 4, 16, QChar('0')).arg(EEPROM_SIZE));
+            statusBar()->showMessage(tr("Read %2 bytes from 0x%1").arg(settings.getEepromAddress(), 4, 16, QChar('0')).arg(settings.getEepromSize()));
           } else {
             statusBar()->showMessage(tr("Read over I2C failed: %1").arg(status));
           }
@@ -327,16 +333,17 @@ void MainWindow::writeData()
         QByteArray buffer(ioBuffer.data());
 
         // only the eeprom size will be counted - less bytes are possible
-        uint16_t bufferSize = std::min((int)buffer.size(), EEPROM_SIZE);
-        for (uint16_t i = 0; i < bufferSize; i += EEPROM_PAGE_SIZE) {
-          uint8_t pageBuffer[EEPROM_PAGE_SIZE + 1];
+        uint16_t bufferSize = std::min((quint32)buffer.size(), settings.getEepromSize());
+        for (uint16_t i = 0; i < bufferSize; i += settings.getEepromPageSize()) {
+          uint8_t pageBuffer[settings.getEepromPageSize() + 2];
           uint16_t pageSize;
 
-          pageSize = ((bufferSize - i) >= EEPROM_PAGE_SIZE) ? EEPROM_PAGE_SIZE : (bufferSize - i);
-          memcpy(pageBuffer + 1, buffer.constData() + i, pageSize);
-          pageBuffer[0] = (uint8_t)i;
+          pageSize = ((quint32)(bufferSize - i) >= settings.getEepromPageSize()) ? settings.getEepromPageSize() : (bufferSize - i);
+          memcpy(pageBuffer + 2, buffer.constData() + i, pageSize);
+          pageBuffer[0] = (uint8_t)(i >> 8);
+          pageBuffer[1] = (uint8_t)i;
 
-          status = m_brg->WriteI2C(pageBuffer, EEPROM_I2C_ADDRESS + (uint8_t)(i >> 8), pageSize + 1, 0);
+          status = m_brg->WriteI2C(pageBuffer, settings.getEepromAddress(), sizeof(pageBuffer), 0);
           if (status == BRG_NO_ERR) {
             QThread::msleep(10);
           } else {
@@ -345,7 +352,7 @@ void MainWindow::writeData()
           }
 
           if (status == BRG_NO_ERR) {
-            statusBar()->showMessage(tr("Written %2 bytes at 0x%1").arg(EEPROM_I2C_ADDRESS * 256, 4, 16, QChar('0')).arg(bufferSize));
+            statusBar()->showMessage(tr("Written %2 bytes at 0x%1").arg(settings.getEepromAddress(), 4, 16, QChar('0')).arg(bufferSize));
             QThread::msleep(10);
           }
         }
@@ -356,6 +363,20 @@ void MainWindow::writeData()
       statusBar()->showMessage(tr("I2C timing error, timing reg: %1").arg(status));
     }
   }
+}
+
+void MainWindow::showSettings()
+{
+  SettingsDialog *settingsDialog;
+  settingsDialog = new SettingsDialog(this);
+
+  if (settingsDialog->exec() == QDialog::Accepted) {
+    QByteArray bytearray(settings.getEepromSize(), 0x00);
+    m_document = QHexDocument::fromMemory<QMemoryBuffer>(bytearray);
+    m_document->setBaseAddress(0);
+  }
+
+  delete settingsDialog;
 }
 
 void MainWindow::about()

@@ -1,6 +1,6 @@
 /*_____________________________________________________________________________
  |                                                                            |
- | COPYRIGHT (C) 2020 Mihai Baneu                                             |
+ | COPYRIGHT (C) 2023 Mihai Baneu                                             |
  |                                                                            |
  | Permission is hereby  granted,  free of charge,  to any person obtaining a |
  | copy of this software and associated documentation files (the "Software"), |
@@ -21,7 +21,7 @@
  | THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                 |
  |____________________________________________________________________________|
  |                                                                            |
- |  Author: Mihai Baneu                           Last modified: 18.Oct.2020  |
+ |  Author: Mihai Baneu                           Last modified: 11.Nov.2023  |
  |                                                                            |
  |___________________________________________________________________________*/
 
@@ -38,6 +38,13 @@ class Settings : public QSettings
     QByteArray getWindowGeometry();
     void setWindowState(const QByteArray &newValue);
     QByteArray getWindowState();
+
+    quint8 getEepromAddress();
+    void setEepromAddress(const quint8 &newValue);
+    quint32 getEepromSize();
+    void setEepromSize(const quint32 &newValue);
+    quint32 getEepromPageSize();
+    void setEepromPageSize(const quint32 &newValue);
 
   private:
     void setDefault();

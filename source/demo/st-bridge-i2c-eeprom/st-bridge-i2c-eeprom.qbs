@@ -77,5 +77,7 @@ Product {
         "settings.h",
         "main_window.cpp",
         "main_window.h",
+        "settings_dialog.cpp",
+        "settings_dialog.h",
     ]
 }
