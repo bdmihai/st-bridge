@@ -1,6 +1,6 @@
 /*_____________________________________________________________________________
  |                                                                            |
- | COPYRIGHT (C) 2021 Mihai Baneu                                             |
+ | COPYRIGHT (C) 2023 Mihai Baneu                                             |
  |                                                                            |
  | Permission is hereby  granted,  free of charge,  to any person obtaining a |
  | copy of this software and associated documentation files (the "Software"), |
@@ -21,21 +21,25 @@
  | THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                 |
  |____________________________________________________________________________|
  |                                                                            |
- |  Author: Mihai Baneu                           Last modified: 25.Mai.2021  |
+ |  Author: Mihai Baneu                           Last modified: 11.Nov.2023  |
  |                                                                            |
  |___________________________________________________________________________*/
 
-import qbs
+#include "stable.h"
+#include "defines.h"
 
-Project {
-  name: "st-bridge"
-  minimumQbsVersion: "1.22"
-  references: [
-    "st-bridge/st-bridge.qbs",
-    "demo/hexview/hexview.qbs",
-    "demo/st-bridge-i2c-eeprom/st-bridge-i2c-eeprom.qbs",
-    "demo/st-bridge-gpio/st-bridge-gpio.qbs",
-    "demo/st-bridge-gpio-doc/st-bridge-gpio-doc.qbs",
-    "demo/st-bridge-ds3231/st-bridge-ds3231.qbs"
-  ]
+int main(int argc, char *argv[])
+{
+    QCoreApplication app(argc, argv);
+
+    // set the application info
+    app.setApplicationName(APP_NAME);
+    app.setOrganizationName(APP_COMPANY);
+    app.setOrganizationDomain(APP_DOMAIN);
+    app.setApplicationVersion(APP_VERSION);
+
+    qInfo().noquote() << APP_NAME << "version" << APP_VERSION;
+    qInfo().noquote() << "Copyright (C) " << APP_COMPANY << "All rights reserved.";
+
+    return app.exec();
 }
