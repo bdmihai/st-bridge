@@ -53,7 +53,7 @@ typedef enum {
 } STLinkIf_StatusT;
 
 const uint16_t STLINK_V3_VID = 0x0483;
-const uint16_t STLINK_V3_PID[] = {0x374E, 0x374F, 0x3753};
+const uint16_t STLINK_V3_PID[] = {0x374E, 0x374F, 0x3753, 0x3754};
 
 /* Class -------------------------------------------------------------------- */
 /// STLinkInterface Class
