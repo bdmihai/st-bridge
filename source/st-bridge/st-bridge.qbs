@@ -26,6 +26,7 @@
  |___________________________________________________________________________*/
 
 import qbs
+import qbs.FileInfo
 
 Product {
   name: "st-bridge"
@@ -37,9 +38,9 @@ Product {
   // cpp module configuration
   cpp.includePaths: [
     ".",
-    "./bridge",
-    "./common",
-    "./error"
+    "bridge",
+    "common",
+    "error"
   ]
   cpp.cxxLanguageVersion: "c++14"
   cpp.useCxxPrecompiledHeader: true
@@ -48,7 +49,11 @@ Product {
   // export requirements
   Export {
     Depends { name: "cpp" }
-    cpp.includePaths: exportingProduct.cpp.includePaths
+    cpp.includePaths: [
+      FileInfo.joinPaths(exportingProduct.sourceDirectory, 'bridge'),
+      FileInfo.joinPaths(exportingProduct.sourceDirectory, 'common'),
+      FileInfo.joinPaths(exportingProduct.sourceDirectory, 'error')
+    ]
     cpp.dynamicLibraries: exportingProduct.cpp.dynamicLibraries
   }
 
